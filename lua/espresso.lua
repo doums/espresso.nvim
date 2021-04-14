@@ -87,9 +87,7 @@ local p = {
   hintFg = '#787878',
   wrapGuide = '#4D4D4D',
   instanceField = '#318495',
-  UIBorder = '#616161',
-  UISelection = '#0D293E',
-  ANSIBlack = '#FFFFFF',
+  ANSIBlack = '#000000',
   ANSIRed = '#FF6767',
   ANSIGreen = '#68E868',
   ANSIYellow = '#754200',
@@ -97,18 +95,14 @@ local p = {
   ANSIMagenta = '#FF2EFF',
   ANSICyan = '#06B8B8',
   ANSIGray = '#A7A7A7',
-  ANSIDarkGray = '#555555',
-  ANSIBrightRed = '#FF8785',
-  ANSIBrightGreen = '#A8C023',
-  ANSIBrightYellow = '#FFFF00',
-  ANSIBrightBlue = '#7EAEF1',
-  ANSIBrightMagenta = '#FF99FF',
-  ANSIBrightCyan = '#6CDADA',
-  ANSIWhite = '#1F1F1F',
-  UIBlue = '#3592C4',
-  UIGreen = '#499C54',
-  UIRed = '#C75450',
-  UIBrown = '#93896C'
+  ANSIDarkGray = '#595959',
+  ANSIBrightRed = '#FF4050',
+  ANSIBrightGreen = '#4FC414',
+  ANSIBrightYellow = '#E5BF00',
+  ANSIBrightBlue = '#1FB0FF',
+  ANSIBrightMagenta = '#ED7EED',
+  ANSIBrightCyan = '#00E5E5',
+  ANSIWhite = '#FFFFFF',
 }
 
 local function hi(name, foreground, background, style)
@@ -230,6 +224,7 @@ li('Delimiter', 'Keyword')
 hi('SpecialComment', p.commentTag, nil, 'italic')
 hi('Debug', p.debug, nil, 'italic')
 -- Ignore
+-- Error defined above
 hi('Underlined', p.fg, nil, 'underline')
 hi('Todo', p.todo, nil, 'bold,italic')
 
