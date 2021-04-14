@@ -33,7 +33,7 @@ local p = {
   cursor = '#889AFF',
   identifierUnderCaret = '#3C3C57',
   identifierUnderCaretWrite = '#472C47',
-  selection = '#95B8FA',
+  selection = '#7d5b54',
   cursorLine = '#3A312C',
   cursorLineNr = '#A4A3A3',
   errorMsg = '#CC666E',
@@ -75,7 +75,7 @@ local p = {
   informationStripe = '#FFFFCC',
   hintStripe = '#F49810',
   menu = '#432717',
-  menuSel = '#42546D',
+  menuSel = '#A65D33',
   menuSBar = '#7f4A2B',
   statusLine = '#432717',
   statusLineFg = '#BBBBBB',
@@ -265,7 +265,7 @@ li('TSComment', 'Comment')
 li('TSConstructor', 'Function')
 li('TSConditional', 'Keyword')
 li('TSConstant', 'Constant')
-li('TSConstBuiltin', 'Keyword')
+li('TSConstBuiltin', 'Constant')
 hi('TSConstMacro', p.macroName)
 li('TSError', 'Error')
 li('TSException', 'Keyword')
