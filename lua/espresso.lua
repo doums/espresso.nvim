@@ -310,7 +310,7 @@ li('TSWarning', 'Warning')
 li('TSDanger', 'Error')
 li('TSType', 'Normal')
 li('TSTypeBuiltin', 'Keyword')
-li('TSVariable', 'TSField')
+li('TSVariable', 'Normal')
 li('TSVariableBuiltin', 'Constant')
 
 -- LSP
