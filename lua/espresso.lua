@@ -52,6 +52,7 @@ local p = {
   keyword = '#43A8ED',
   comment = '#0066FF',
   string = '#049B0A',
+  escapeSequence = '#2FE420',
   number = '#44AA43',
   commentTag = '#8A653B',
   ['function'] = '#FF9358',
@@ -66,7 +67,7 @@ local p = {
   typo = '#659C6B',
   metaData = '#43A8ED',
   macroName = '#908B25',
-  cDataStructure = '#B5B6E3',
+  namespace = '#B5B6E3',
   hint = '#9C8366',
   information = '#80807F',
   debug = '#666D75',
@@ -85,7 +86,7 @@ local p = {
   hintBg = '#3B3B3B',
   hintFg = '#787878',
   wrapGuide = '#4D4D4D',
-  instanceField = '#318495',
+  variable = '#318495',
   ANSIBlack = '#000000',
   ANSIRed = '#FF6767',
   ANSIGreen = '#68E868',
@@ -269,7 +270,7 @@ li('TSConstBuiltin', 'Constant')
 hi('TSConstMacro', p.macroName)
 li('TSError', 'Error')
 li('TSException', 'Keyword')
-hi('TSField', p.instanceField)
+hi('TSField', p.variable)
 li('TSFloat', 'Number')
 li('TSFunction', 'Function')
 li('TSFuncBuiltin', 'Normal')
@@ -279,7 +280,7 @@ li('TSKeyword', 'Keyword')
 li('TSKeywordFunction', 'Keyword')
 li('TSLabel', 'Normal')
 li('TSMethod', 'Function')
-li('TSNamespace', 'Normal')
+hi('TSNamespace', p.namespace)
 li('TSNone', 'Normal')
 li('TSNumber', 'Number')
 li('TSOperator', 'Normal')
@@ -292,7 +293,7 @@ li('TSPunctSpecial', 'Keyword')
 li('TSRepeat', 'Keyword')
 li('TSString', 'String')
 li('TSStringRegex', 'Number')
-li('TSStringEscape', 'Keyword')
+hi('TSStringEscape', p.escapeSequence)
 li('TSSymbol', 'Identifier')
 li('TSTag', 'Keyword')
 li('TSTagDelimiter', 'Normal')
@@ -309,8 +310,8 @@ li('TSWarning', 'Warning')
 li('TSDanger', 'Error')
 li('TSType', 'Normal')
 li('TSTypeBuiltin', 'Keyword')
-li('TSVariable', 'Normal')
-li('TSVariableBuiltin', 'Keyword')
+li('TSVariable', 'TSField')
+li('TSVariableBuiltin', 'Constant')
 
 -- LSP
 li('LspReferenceText', 'IdentifierUnderCaret')
