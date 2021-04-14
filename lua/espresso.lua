@@ -33,15 +33,13 @@ local p = {
   cursor = '#889AFF',
   identifierUnderCaret = '#3C3C57',
   identifierUnderCaretWrite = '#472C47',
-  gutter = '#2A211C',
   selection = '#95B8FA',
   cursorLine = '#3A312C',
   cursorLineNr = '#A4A3A3',
   errorMsg = '#CC666E',
   error = '#BC3F3C',
   warning = '#4A3F10',
-  muted = '#BFBFBF',
-  link = '#C7C7FF',
+  muted = '#734C36',
   stdOutput = '#E4E4FF',
   lineNumber = '#BDAE9D',
   matchBrace = '#3A6DA0',
@@ -59,8 +57,8 @@ local p = {
   ['function'] = '#FF9358',
   diffAdd = '#294436',
   diffText = '#385570',
-  diffDelete = '#484A4A',
-  diffChange = '#303C47',
+  diffDelete = '#656E76',
+  diffChange = '#374752',
   addStripe = '#384C38',
   whitespaceStripe = '#4C4638',
   changeStripe = '#374752',
@@ -69,23 +67,26 @@ local p = {
   metaData = '#43A8ED',
   macroName = '#908B25',
   cDataStructure = '#B5B6E3',
+  hint = '#9C8366',
+  information = '#80807F',
   debug = '#666D75',
   errorStripe = '#FF0000',
-  warnStripe = '#FFFF00',
-  infoStripe = '#FFFFCC',
-  hintStripe = '#9E9E80',
+  warningStripe = '#FFFF00',
+  informationStripe = '#FFFFCC',
+  hintStripe = '#F49810',
   menu = '#46484A',
   menuFg = '#BBBBBB',
   menuSel = '#113A5C',
   menuSBar = '#616263',
-  statusLine = '#3C3F41',
+  statusLine = '#432717',
   statusLineFg = '#BBBBBB',
-  statusLineNC = '#787878',
+  statusLineNC = '#3C3F41',
   tabLineSel = '#4E5254',
   duplicateFromServer = '#30322B',
   hintBg = '#3B3B3B',
   hintFg = '#787878',
   wrapGuide = '#4D4D4D',
+  instanceField = '#318495',
   UIBorder = '#616161',
   UISelection = '#0D293E',
   ANSIBlack = '#FFFFFF',
@@ -123,8 +124,20 @@ local function li(target, source)
 end
 
 -- helper groups
+hi('Error', p.error, p.bg, 'underline')
 hi('Warning', nil, p.warning)
-hi('Hint', p.hintFg, p.hintBg)
+hi('Information', p.information)
+hi('Hint', p.hint)
+hi('ErrorSign', p.errorStripe)
+hi('WarningSign', p.warningStripe)
+hi('InformationSign', p.informationStripe)
+hi('HintSign', p.hintStripe)
+hi('IdentifierUnderCaret', nil, p.identifierUnderCaret)
+hi('IdentifierUnderCaretWrite', nil, p.identifierUnderCaretWrite)
+hi('GitAddSign', p.addStripe)
+hi('GitChangeSign', p.changeStripe)
+hi('GitDeleteSign', p.deleteStripe)
+hi('GitChangeDeleteSign', p.whitespaceStripe)
 
 -- builtin groups `:h highlight-groups`
 hi('ColorColumn', nil, p.wrapGuide)
@@ -146,10 +159,10 @@ hi('ErrorMsg', p.errorMsg)
 hi('VertSplit', p.muted)
 hi('Folded', p.foldedFg, p.foldedBg)
 li('FoldColumn', 'Folded')
-hi('SignColumn', nil, p.gutter)
+hi('SignColumn', nil, p.bg)
 hi('IncSearch', nil, p.incSearch)
 li('Substitute', 'Search')
-hi('LineNr', p.lineNumber, p.gutter)
+hi('LineNr', p.lineNumber, p.bg)
 hi('CursorLineNr', p.constant, p.bg, 'bold')
 hi('MatchParen', nil, p.matchBrace)
 hi('ModeMsg', p.stdOutput)
@@ -218,7 +231,6 @@ hi('SpecialComment', p.commentTag, nil, 'italic')
 hi('Debug', p.debug, nil, 'italic')
 -- Ignore
 hi('Underlined', p.fg, nil, 'underline')
-hi('Error', p.error, p.bg, 'underline')
 hi('Todo', p.todo, nil, 'bold,italic')
 
 -- some other groups
@@ -260,14 +272,14 @@ li('TSConstructor', 'Function')
 li('TSConditional', 'Keyword')
 li('TSConstant', 'Constant')
 li('TSConstBuiltin', 'Keyword')
-li('TSConstMacro', 'cMacroName')
+hi('TSConstMacro', p.macroName)
 li('TSError', 'Error')
 li('TSException', 'Keyword')
-li('TSField', 'InstanceField')
+hi('TSField', p.instanceField)
 li('TSFloat', 'Number')
 li('TSFunction', 'Function')
 li('TSFuncBuiltin', 'Normal')
-li('TSFuncMacro', 'cMacroName')
+li('TSFuncMacro', 'TSConstMacro')
 li('TSInclude', 'Keyword')
 li('TSKeyword', 'Keyword')
 li('TSKeywordFunction', 'Keyword')
@@ -297,8 +309,8 @@ hi('TSUnderline', p.fg, nil, 'underline')
 hi('TSStrike', p.fg, nil, 'strikethrough')
 hi('TSTitle', p.fg, nil, 'bold,underline')
 li('TSLiteral', 'Normal')
-li('TSURI', 'markdownLinkText')
-li('TSNote', 'CodeInfo')
+hi('TSURI', p.todo, nil, 'italic')
+li('TSNote', 'Information')
 li('TSWarning', 'Warning')
 li('TSDanger', 'Error')
 li('TSType', 'Normal')
@@ -311,17 +323,17 @@ li('LspReferenceText', 'IdentifierUnderCaret')
 li('LspReferenceRead', 'IdentifierUnderCaret')
 li('LspReferenceWrite', 'IdentifierUnderCaretWrite')
 li('LspDiagnosticsDefaultError', 'Error')
-li('LspDiagnosticsDefaultWarning', 'TSWarning')
-li('LspDiagnosticsDefaultInformation', 'CodeInfo')
-li('LspDiagnosticsDefaultHint', 'CodeHint')
+li('LspDiagnosticsDefaultWarning', 'Warning')
+li('LspDiagnosticsDefaultInformation', 'Information')
+li('LspDiagnosticsDefaultHint', 'Hint')
 li('LspDiagnosticsSignError', 'ErrorSign')
 li('LspDiagnosticsSignWarning', 'WarningSign')
-li('LspDiagnosticsSignInformation', 'InfoSign')
+li('LspDiagnosticsSignInformation', 'InformationSign')
 li('LspDiagnosticsSignHint', 'HintSign')
 li('LspDiagnosticsUnderlineError', 'Error')
 li('LspDiagnosticsUnderlineWarning', 'Warning')
-li('LspDiagnosticsUnderlineInformation', 'CodeInfo')
-li('LspDiagnosticsUnderlineHint', 'CodeHint')
+li('LspDiagnosticsUnderlineInformation', 'Information')
+li('LspDiagnosticsUnderlineHint', 'Hint')
 li('LspDiagnosticsFloatingError', 'NormalFloat')
 li('LspDiagnosticsFloatingWarning', 'NormalFloat')
 li('LspDiagnosticsFloatingInformation', 'NormalFloat')
