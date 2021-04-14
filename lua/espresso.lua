@@ -74,10 +74,9 @@ local p = {
   warningStripe = '#FFFF00',
   informationStripe = '#FFFFCC',
   hintStripe = '#F49810',
-  menu = '#46484A',
-  menuFg = '#BBBBBB',
-  menuSel = '#113A5C',
-  menuSBar = '#616263',
+  menu = '#432717',
+  menuSel = '#42546D',
+  menuSBar = '#7f4A2B',
   statusLine = '#432717',
   statusLineFg = '#BBBBBB',
   statusLineNC = '#3C3F41',
@@ -167,8 +166,8 @@ hi('NonText', p.muted)
 hi('Normal', p.fg, p.bg)
 li('NormalFloat', 'Pmenu')
 li('NormalNC', 'NormalFg')
-hi('Pmenu', p.menuFg, p.menu)
-hi('PmenuSel', p.menuFg, p.menuSel)
+hi('Pmenu', p.fg, p.menu)
+hi('PmenuSel', p.fg, p.menuSel)
 hi('PmenuSbar', p.menu, p.menu)
 hi('PmenuThumb', p.menuSBar, p.menuSBar)
 li('Question', 'NormalFg')
