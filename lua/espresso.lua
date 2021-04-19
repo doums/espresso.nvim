@@ -79,9 +79,7 @@ local p = {
   menuSel = '#A65D33',
   menuSBar = '#7f4A2B',
   statusLine = '#432717',
-  statusLineFg = '#BBBBBB',
-  statusLineNC = '#3C3F41',
-  tabLineSel = '#4E5254',
+  statusLineNC = '#2A190E',
   duplicateFromServer = '#30322B',
   hintBg = '#3B3B3B',
   hintFg = '#787878',
@@ -179,11 +177,11 @@ hi('SpellBad', p.typo, nil, 'underline')
 li('SpellCap', 'SpellBad')
 li('SpellLocal', 'SpellBad')
 li('SpellRare', 'SpellBad')
-hi('StatusLine', p.statusLineFg, p.statusLine)
-hi('StatusLineNC', p.statusLineNC, p.statusLine)
-hi('TabLine', p.statusLineFg, p.statusLine)
-hi('TabLineFill', p.statusLine, p.statusLine)
-hi('TabLineSel', p.fg, p.tabLineSel)
+hi('StatusLine', p.fg, p.statusLine)
+hi('StatusLineNC', p.fg, p.statusLineNC)
+hi('TabLine', p.fg, p.statusLineNC)
+hi('TabLineFill', p.statusLineNC, p.statusLineNC)
+hi('TabLineSel', p.fg, p.statusLine)
 li('Title', 'Special')
 hi('Visual', nil, p.selection)
 li('VisualNOS', 'Visual')
