@@ -65,7 +65,6 @@ local p = {
   changeStripe = '#374752',
   deleteStripe = '#656E76',
   typo = '#659C6B',
-  metaData = '#43A8ED',
   macroName = '#908B25',
   namespace = '#B5B6E3',
   hint = '#9C8366',
@@ -204,7 +203,7 @@ li('Label', 'Keyword')
 li('Operator', 'Keyword')
 hi('Keyword', p.keyword, nil, 'bold')
 li('Exception', 'Keyword')
-hi('PreProc', p.metaData)
+li('PreProc', 'Keyword')
 li('Include', 'PreProc')
 li('Define', 'PreProc')
 li('Macro', 'PreProc')
