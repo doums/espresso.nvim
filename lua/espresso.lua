@@ -41,7 +41,6 @@ local p = {
   warning = '#4A3F10',
   muted = '#734C36',
   stdOutput = '#E4E4FF',
-  lineNumber = '#BDAE9D',
   matchBrace = '#3A6DA0',
   todo = '#C7C7FF',
   search = '#5F5F00',
@@ -151,7 +150,7 @@ li('FoldColumn', 'Folded')
 hi('SignColumn', nil, p.bg)
 hi('IncSearch', nil, p.incSearch)
 li('Substitute', 'Search')
-hi('LineNr', p.lineNumber, p.bg)
+hi('LineNr', p.fg, p.bg)
 hi('CursorLineNr', p.constant, p.bg, 'bold')
 hi('MatchParen', nil, p.matchBrace)
 hi('ModeMsg', p.stdOutput)
