@@ -228,6 +228,7 @@ hi('NvimInternalError', p.error, p.error)
 hi('RedrawDebugClear', p.fg, p.duplicateFromServer)
 hi('RedrawDebugComposed', p.fg, p.search)
 li('RedrawDebugRecompose', 'Error')
+hi('FloatBorder', p.fg, p.menu)
 
 -- builtin terminal colors
 g.terminal_color_0 = p.ANSIBlack
