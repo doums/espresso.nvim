@@ -2,6 +2,8 @@
 License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at https://mozilla.org/MPL/2.0/. ]]
 
+local M = {}
+
 local fn = vim.fn
 local cmd = vim.cmd
 local g = vim.g
@@ -273,6 +275,7 @@ li('TSFuncMacro', 'TSConstMacro')
 li('TSInclude', 'Keyword')
 li('TSKeyword', 'Keyword')
 li('TSKeywordFunction', 'Keyword')
+li('TSKeywordOperator', 'Keyword')
 li('TSLabel', 'Normal')
 li('TSMethod', 'Function')
 hi('TSNamespace', p.namespace)
@@ -300,6 +303,10 @@ hi('TSStrike', p.fg, nil, 'strikethrough')
 hi('TSTitle', p.fg, nil, 'bold,underline')
 li('TSLiteral', 'Normal')
 hi('TSURI', p.todo, nil, 'italic')
+li('TSMath', 'Special')
+li('TSTextReference', 'Comment')
+li('TSEnviroment', 'Macro')
+li('TSEnviromentName', 'Type')
 li('TSNote', 'Information')
 li('TSWarning', 'Warning')
 li('TSDanger', 'Error')
@@ -329,3 +336,5 @@ li('LspDiagnosticsFloatingWarning', 'NormalFloat')
 li('LspDiagnosticsFloatingInformation', 'NormalFloat')
 li('LspDiagnosticsFloatingHint', 'NormalFloat')
 
+M.p = p
+return M
