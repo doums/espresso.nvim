@@ -81,6 +81,7 @@ local p = {
   statusLine = '#432717',
   statusLineNC = '#2A190E',
   duplicateFromServer = '#30322B',
+  codeLens = '#CA7E03',
   wrapGuide = '#4D4D4D',
   variable = '#318495',
   ANSIBlack = '#000000',
@@ -335,6 +336,7 @@ li('LspDiagnosticsFloatingError', 'NormalFloat')
 li('LspDiagnosticsFloatingWarning', 'NormalFloat')
 li('LspDiagnosticsFloatingInformation', 'NormalFloat')
 li('LspDiagnosticsFloatingHint', 'NormalFloat')
+hi('LspCodeLens', p.codeLens, nil, 'italic')
 
 M.p = p
 return M
