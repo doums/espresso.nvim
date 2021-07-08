@@ -113,6 +113,12 @@ local function li(target, source)
   cmd(string.format('hi! link %s %s', target, source))
 end
 
+--[[ The CursorLine background will be overloaded by any group
+--   that defines a background value.
+--   Do not link to Normal group. Instead, link to this group.
+--   see https://github.com/neovim/neovim/issues/9019 ]]
+hi('Fg', p.fg)
+
 -- helper groups
 hi('Error', p.error, nil, 'underline')
 hi('Warning', nil, p.warning)
@@ -250,10 +256,6 @@ g.terminal_color_13 = p.ANSIBrightMagenta
 g.terminal_color_14 = p.ANSIBrightCyan
 g.terminal_color_15 = p.ANSIWhite
 
--- the following code snippet fix an issue with CursorLine hi group
--- see https://github.com/neovim/neovim/issues/9019
-cmd 'hi CursorLine ctermfg=white'
-
 -- nvim-treesitter
 li('TSAnnotation', 'PreProc')
 li('TSAttribute', 'PreProc')
@@ -270,23 +272,23 @@ li('TSException', 'Keyword')
 hi('TSField', p.variable)
 li('TSFloat', 'Number')
 li('TSFunction', 'Function')
-li('TSFuncBuiltin', 'Normal')
+li('TSFuncBuiltin', 'Fg')
 li('TSFuncMacro', 'TSConstMacro')
 li('TSInclude', 'Keyword')
 li('TSKeyword', 'Keyword')
 li('TSKeywordFunction', 'Keyword')
 li('TSKeywordOperator', 'Keyword')
-li('TSLabel', 'Normal')
+li('TSLabel', 'Fg')
 li('TSMethod', 'Function')
 hi('TSNamespace', p.namespace)
-li('TSNone', 'Normal')
+li('TSNone', 'Fg')
 li('TSNumber', 'Number')
-li('TSOperator', 'Normal')
-li('TSParameter', 'Normal')
-li('TSParameterReference', 'Normal')
+li('TSOperator', 'Fg')
+li('TSParameter', 'Fg')
+li('TSParameterReference', 'Fg')
 li('TSProperty', 'TSField')
-li('TSPunctDelimiter', 'Normal')
-li('TSPunctBracket', 'Normal')
+li('TSPunctDelimiter', 'Fg')
+li('TSPunctBracket', 'Fg')
 li('TSPunctSpecial', 'Keyword')
 li('TSRepeat', 'Keyword')
 li('TSString', 'String')
@@ -294,14 +296,14 @@ li('TSStringRegex', 'Number')
 hi('TSStringEscape', p.escapeSequence)
 li('TSSymbol', 'Identifier')
 li('TSTag', 'Keyword')
-li('TSTagDelimiter', 'Normal')
-li('TSText', 'Normal')
+li('TSTagDelimiter', 'Fg')
+li('TSText', 'Fg')
 hi('TSStrong', p.fg, nil, 'bold')
 hi('TSEmphasis', p.fg, nil, 'italic')
 hi('TSUnderline', p.fg, nil, 'underline')
 hi('TSStrike', p.fg, nil, 'strikethrough')
 hi('TSTitle', p.fg, nil, 'bold,underline')
-li('TSLiteral', 'Normal')
+li('TSLiteral', 'Fg')
 hi('TSURI', p.todo, nil, 'italic')
 li('TSMath', 'Special')
 li('TSTextReference', 'Comment')
@@ -310,9 +312,9 @@ li('TSEnviromentName', 'Type')
 li('TSNote', 'Information')
 li('TSWarning', 'Warning')
 li('TSDanger', 'Error')
-li('TSType', 'Normal')
+li('TSType', 'Fg')
 li('TSTypeBuiltin', 'Keyword')
-li('TSVariable', 'Normal')
+li('TSVariable', 'Fg')
 li('TSVariableBuiltin', 'Constant')
 
 -- LSP
