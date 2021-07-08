@@ -114,7 +114,7 @@ local function li(target, source)
 end
 
 -- helper groups
-hi('Error', p.error, nil, 'undercurl')
+hi('Error', p.error, nil, 'underline')
 hi('Warning', nil, p.warning)
 hi('Information', p.information)
 hi('Hint', p.hint)
@@ -171,7 +171,7 @@ li('Question', 'NormalFg')
 li('QuickFixLine', 'NormalFg')
 hi('Search', nil, p.search)
 li('SpecialKey', 'NonText')
-hi('SpellBad', p.typo, nil, 'undercurl')
+hi('SpellBad', p.typo, nil, 'underline')
 li('SpellCap', 'SpellBad')
 li('SpellLocal', 'SpellBad')
 li('SpellRare', 'SpellBad')
