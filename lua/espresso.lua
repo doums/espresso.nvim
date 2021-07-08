@@ -4,19 +4,16 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. ]]
 
 local M = {}
 
+local api = vim.api
 local fn = vim.fn
 local cmd = vim.cmd
 local g = vim.g
 local o = vim.o
 
-local function log(msg, hi)
-  if hi then cmd(string.format('echohl %s', hi)) end
-  cmd(string.format('echom "[espresso] %s"', msg))
-  if hi then cmd 'echohl None' end
-end
-
 if fn.has('termguicolors') ~= 1 or not o.termguicolors then
-  log('needs truecolor to work (see :h termguicolors).', 'Error')
+  api.nvim_echo({
+    {'[espresso] truecolor must be enabled (see :h termguicolors).'},
+  }, true, {})
   return
 end
 
@@ -59,11 +56,11 @@ local p = {
   ['function'] = '#FF9358',
   diffAdd = '#294436',
   diffText = '#385570',
-  diffDelete = '#656E76',
-  diffChange = '#374752',
-  addStripe = '#384C38',
-  whitespaceStripe = '#4C4638',
-  changeStripe = '#374752',
+  diffDelete = '#484A4A',
+  diffChange = '#30363E',
+  addStripe = '#447152',
+  whitespaceStripe = '#8F5247',
+  changeStripe = '#43698D',
   deleteStripe = '#656E76',
   typo = '#659C6B',
   macroName = '#908B25',
@@ -103,10 +100,12 @@ local p = {
 }
 
 local function hi(name, foreground, background, style)
-  local fg = 'guifg='..(foreground or 'NONE')
-  local bg = 'guibg='..(background or 'NONE')
-  local decoration = 'gui='..(style or 'NONE')
-  local hi_command = string.format('hi %s %s %s %s', name, fg, bg, decoration)
+  local fg = 'guifg=' .. (foreground or 'NONE')
+  local bg = 'guibg=' .. (background or 'NONE')
+  local decoration = 'gui=' .. (style or 'NONE')
+  local special = 'guisp=' .. (foreground or 'NONE')
+  local hi_command = string.format('hi %s %s %s %s %s', name, fg, bg,
+                                   decoration, special)
   cmd(hi_command)
 end
 
@@ -115,7 +114,7 @@ local function li(target, source)
 end
 
 -- helper groups
-hi('Error', p.error, p.bg, 'underline')
+hi('Error', p.error, nil, 'undercurl')
 hi('Warning', nil, p.warning)
 hi('Information', p.information)
 hi('Hint', p.hint)
@@ -172,7 +171,7 @@ li('Question', 'NormalFg')
 li('QuickFixLine', 'NormalFg')
 hi('Search', nil, p.search)
 li('SpecialKey', 'NonText')
-hi('SpellBad', p.typo, nil, 'underline')
+hi('SpellBad', p.typo, nil, 'undercurl')
 li('SpellCap', 'SpellBad')
 li('SpellLocal', 'SpellBad')
 li('SpellRare', 'SpellBad')
