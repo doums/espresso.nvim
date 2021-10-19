@@ -12,15 +12,15 @@ local o = vim.o
 
 if fn.has('termguicolors') ~= 1 or not o.termguicolors then
   api.nvim_echo({
-    {'[espresso] truecolor must be enabled (see :h termguicolors).'},
+    { '[espresso] truecolor must be enabled (see :h termguicolors).' },
   }, true, {})
   return
 end
 
 -- stuff for the legacy regex engine
-cmd 'highlight clear'
+cmd('highlight clear')
 if fn.exists('syntax_on') == 1 then
-  cmd 'syntax reset'
+  cmd('syntax reset')
 end
 
 g.colors_name = 'espresso'
@@ -104,8 +104,14 @@ local function hi(name, foreground, background, style)
   local bg = 'guibg=' .. (background or 'NONE')
   local decoration = 'gui=' .. (style or 'NONE')
   local special = 'guisp=' .. (foreground or 'NONE')
-  local hi_command = string.format('hi %s %s %s %s %s', name, fg, bg,
-                                   decoration, special)
+  local hi_command = string.format(
+    'hi %s %s %s %s %s',
+    name,
+    fg,
+    bg,
+    decoration,
+    special
+  )
   cmd(hi_command)
 end
 
