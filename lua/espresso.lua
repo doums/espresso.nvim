@@ -203,6 +203,8 @@ li('VisualNOS', 'Visual')
 li('WarningMsg', 'Warning')
 li('Whitespace', 'NonText')
 li('WildMenu', 'PmenuSel')
+li('WinBar', 'StatusLine')
+li('WinBarNC', 'StatusLineNC')
 
 -- common groups `:h group-name`
 hl('Comment', p.comment, nil, 'italic')
