@@ -1,1 +1,1 @@
-require('espresso')
+require('espresso').load()
