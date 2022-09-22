@@ -64,6 +64,7 @@ local p = {
   codeLens = '#CA7E03',
   wrapGuide = '#312722',
   variable = '#318495',
+  terminalFg = '#FFFFFF',
   ANSIBlack = '#000000',
   ANSIRed = '#FF6767',
   ANSIGreen = '#68E868',
