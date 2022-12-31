@@ -177,7 +177,7 @@ function M.init()
   g.terminal_color_14 = p.ANSIBrightCyan
   g.terminal_color_15 = p.ANSIWhite
 
-  -- nvim-treesitter 
+  -- nvim-treesitter
   -- TODO now deprecated, see `Treesitter` group below
   -- keep them for backward compatibility
   li('TSAttribute', 'PreProc')
@@ -339,6 +339,7 @@ function M.init()
   li('DiagnosticFloatingWarn', 'NormalFloat')
   li('DiagnosticFloatingInfo', 'NormalFloat')
   li('DiagnosticFloatingHint', 'NormalFloat')
+  hl('DiagnosticOk', p.ANSIGreen, nil)
 end
 
 return M
