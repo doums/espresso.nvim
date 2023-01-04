@@ -5,7 +5,6 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. ]]
 local M = {}
 
 local api = vim.api
-local cmd = vim.cmd
 local g = vim.g
 
 local p = require('espresso.palette')
@@ -23,7 +22,7 @@ local function hl(name, fg, bg, style, sp)
 end
 
 local function li(target, source)
-  cmd(string.format('hi! link %s %s', target, source))
+  api.nvim_set_hl(0, target, { link = source })
 end
 
 function M.init()
