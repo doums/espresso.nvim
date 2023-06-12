@@ -339,6 +339,7 @@ function M.init()
   li('DiagnosticFloatingInfo', 'NormalFloat')
   li('DiagnosticFloatingHint', 'NormalFloat')
   hl('DiagnosticOk', p.ANSIGreen, nil)
+  hl('DiagnosticUnnecessary', p.unused, nil, 'italic')
 end
 
 return M

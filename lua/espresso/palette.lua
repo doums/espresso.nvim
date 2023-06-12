@@ -20,6 +20,7 @@ local p = {
   warnEffect = '#BDAE9D',
   infoEffect = '#3592C4',
   hintEffect = '#713D40',
+  unused = '#868645',
   muted = '#734C36',
   stdOutput = '#E4E4FF',
   matchBrace = '#3A6DA0',
