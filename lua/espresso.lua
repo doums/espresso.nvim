@@ -19,7 +19,7 @@ local function load()
     vim.cmd('hi clear')
   end
 
-  vim.o.termguicolors = 1
+  vim.o.termguicolors = true
   vim.g.colors_name = 'espresso'
 
   -- generate highlight groups
